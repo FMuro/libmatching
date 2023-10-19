@@ -1,0 +1,1 @@
+This is a library used in some personal projects related to grading exams. It contains some functions related to matching strings from a list (think of a list of corrupted people names, obtained from OCR) to strings from another list (e.g. a list of real people names, including the real names of those in the corrupted list).
