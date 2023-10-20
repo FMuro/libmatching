@@ -5,6 +5,7 @@ import numpy as np
 import os
 import collections
 import shutil
+from unidecode import unidecode
 
 # get the list of PDF file names (without extension) in path
 def PDF_names(path):
@@ -43,3 +44,7 @@ def best_matches(list1, list2):
 def rename_files(source_path, output_path, list):
     for item in list:
         shutil.copy(os.path.join(source_path, item[0]+'.pdf'), os.path.join(output_path, item[1]+'.pdf'))
+
+# normalize a string removing/modifying special characters from name (diacritics, spaces, capitals, etc.)
+def normalize_string(string):
+    return unidecode(string).strip().replace(" ", "").replace(",", "").lower()
