@@ -29,13 +29,15 @@ def score_matrix(list1, list2):
         len(list1), len(list2))).toarray()
 
 # given two lists, create a new list whose elements are of the form [element of first list, best match in second list, score]
-def best_match_list(list1, list2):
+# and a dictionary of the form {best match in second list: element of first list}
+def best_matches(list1, list2):
     M = score_matrix(list1, list2)
     # solve the linear sum assignment problem
     [list1_positions, list2_positions] = optimize.linear_sum_assignment(
     M, maximize=True)
     return [[list1[list1_positions[i]], list2[list2_positions[i]],M[list1_positions[i],list2_positions[i]]]
-              for i in range(len(list1_positions))]
+              for i in range(len(list1_positions))], {list2[list2_positions[i]]: list1[list1_positions[i]]
+              for i in range(len(list1_positions))}
 
 # rename source folder files according to a list of pairs of the form [filename, newname] and copy them to output folder
 def rename_files(source_path, output_path, list):
