@@ -23,6 +23,8 @@ def score_matrix(list1, list2):
     rows_list = []
     columns_list = []
     scores_list = []
+    list1 = [unidecode(item) for item in list1]
+    list2 = [unidecode(item) for item in list2]
     for item, count in collections.Counter(list1).items():
         matches = process.extract(item, list2)
         for match in matches:
