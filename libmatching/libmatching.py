@@ -6,6 +6,7 @@ import os
 import collections
 import shutil
 from unidecode import unidecode
+from tabulate import tabulate
 
 
 # get the list of PDF file names (without extension) in path
@@ -63,3 +64,9 @@ def rename_files(source_path, output_path, list):
 
 def normalize_string(string):
     return unidecode(string).strip().replace(" ", "").replace(",", "").lower()
+
+# print table from list of lists of the form [string1, string2, score] ordered by score (descending)
+
+def sorted_table(list):
+    sorted_list = sorted(list, key=lambda x: x[2])
+    print(tabulate(sorted_list, headers=['OLD name', 'NEW name', 'SCORE']))
