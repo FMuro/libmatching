@@ -6,7 +6,7 @@
         {
             "label": "Build python package & reinstall",
             "type": "shell",
-            "command": "python3.11 -m build && pip uninstall -y libmatching && pip install dist/*.whl"
+            "command": "python3.12 -m build && pipx uninstall  libmatching && pipx install dist/*.whl"
         }
     ]
 }
