@@ -69,6 +69,6 @@ def normalize_string(string):
 
 # print table from list of lists of the form [string1, string2, score] ordered by score (descending)
 
-def sorted_table(list):
+def sorted_table(list, old_name = 'OLD name', new_name = 'NEW name'):
     sorted_list = sorted(list, key=lambda x: x[2])
-    print(tabulate(sorted_list, headers=['OLD name', 'NEW name', 'SCORE']))
+    print(tabulate(sorted_list, headers=[old_name, new_name, 'SCORE']))
